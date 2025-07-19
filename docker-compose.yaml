@@ -1,0 +1,15 @@
+networks:
+  cloudflared:
+    name: cloudflared
+services:
+  # cloudflared:
+  #   command: tunnel --no-autoupdate run
+  #   container_name: cloudflared
+  #   environment:
+  #     TUNNEL_TOKEN: >-
+  #       eyJhIjoiOGNlODA4ZjBhMzM1ODk4MGIzOTBlYTgzMGE4ZGYzYzYiLCJ0IjoiZDExMjA4OTMtYzBhNC00ZjFkLWE5YzUtNTc2ZWU0MTQwNjgxIiwicyI6Ik9EVTVOREUwT0dRdE9XUTNNaTAwTldKa0xUa3hZMk10TVdRNE5qWTJPV05pWlRRNSJ9
+  #     TZ: Europe/Zurich
+  #   image: cloudflare/cloudflared
+  #   networks:
+  #     - cloudflared
+  #   restart: unless-stopped
