@@ -13,3 +13,22 @@ services:
   #   networks:
   #     - cloudflared
   #   restart: unless-stopped
+
+  traefik:
+    container_name: traefik
+    # environment:
+    #   CF_DNS_API_TOKEN: 80lUICJN2hOjwEamgEhMdZHucCDvOJUKxjxQhSOJ
+    image: traefik:latest
+    networks:
+      - cloudflared
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8080:8080'
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/thehorde/server-stack/appdata/traefik/acme.json:/acme.json
+      - /home/thehorde/server-stack/appdata/traefik/config.yml:/config.yml
+      - /home/thehorde/server-stack/appdata/traefik/traefik.yml:/traefik.yml:ro
