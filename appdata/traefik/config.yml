@@ -1,0 +1,553 @@
+http:
+ 
+  routers:
+ 
+    authelia:
+      entryPoints:
+        - https
+      rule: "Host(`auth.thehorde.page`)"
+      tls:
+        certresolver: myresolver
+      service: authelia
+
+    vaultwarden:
+      entryPoints:
+        - https
+      rule: "Host(`pass.thehorde.page`)"
+      tls:
+        certresolver: myresolver
+      service: vaultwarden
+
+    homepage:
+      entryPoints:
+        - https
+      rule: "Host(`home.thehorde.page`)"
+      # middlewares:
+      #   - authelia
+      tls:
+        certresolver: myresolver
+      service: homepage
+
+    uptime:
+      entryPoints:
+        - https
+      rule: "Host(`uptime.thehorde.page`)"
+      middlewares:
+        - authelia
+      tls:
+        certresolver: myresolver
+      service: uptime
+
+    pairdrop:
+      entryPoints:
+        - https
+      rule: "Host(`drop.thehorde.page`)"
+      tls:
+        certresolver: myresolver
+      service: pairdrop
+
+    wiki:
+      entryPoints:
+        - https
+      rule: "Host(`wiki.thehorde.page`)"
+      tls:
+        certresolver: myresolver
+      service: wiki
+
+    cloud:
+      entryPoints:
+        - https
+      rule: "Host(`cloud.thehorde.page`)"
+      tls:
+        certresolver: myresolver
+      service: cloud
+
+    notify:
+      entryPoints:
+        - https
+      rule: "Host(`notify.thehorde.page`)"
+      tls:
+        certresolver: myresolver
+      service: notify
+
+    nas:
+      entryPoints:
+        - https
+      rule: "Host(`nas.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: nas 
+
+    hassio:
+      entryPoints:
+        - https
+      rule: "Host(`ha.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: hassio
+
+    lora2mqtt:
+      entryPoints:
+        - https
+      rule: "Host(`lora2mqtt.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: lora2mqtt
+
+    jellyfin:
+      entryPoints:
+        - https
+      rule: "Host(`play.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: jellyfin
+
+    ryot:
+      entryPoints:
+        - https
+      rule: "Host(`media.thehorde.page`)"
+      middlewares:     
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: ryot
+
+    torrent:
+      entryPoints:
+        - https
+      rule: "Host(`torrent.thehorde.page`)"
+      middlewares:
+        # - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: torrent
+
+    sonarr:
+      entryPoints:
+        - https
+      rule: "Host(`sonarr.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: sonarr
+
+    radarr:
+      entryPoints:
+        - https
+      rule: "Host(`radarr.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: radarr
+
+    lidarr:
+      entryPoints:
+        - https
+      rule: "Host(`lidarr.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: lidarr
+
+    prowlarr:
+      entryPoints:
+        - https
+      rule: "Host(`prowlarr.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: prowlarr
+   
+    bazarr:
+      entryPoints:
+        - https
+      rule: "Host(`bazarr.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: bazarr
+
+    calibre:
+      entryPoints:
+        - https
+      rule: "Host(`calibre.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: calibre
+
+    webdav:
+      entryPoints:
+        - https
+      rule: "Host(`dav.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: webdav
+
+    romm:
+      entryPoints:
+        - https
+      rule: "Host(`games.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: romm
+
+    audiobookshelf:
+      entryPoints:
+        - https
+      rule: "Host(`audio.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: audiobookshelf
+
+    navidrome:
+      entryPoints:
+        - https
+      rule: "Host(`music.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: navidrome
+
+    immich:
+      entryPoints:
+        - https
+      rule: "Host(`photos.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: immich
+
+    mealie:
+      entryPoints:
+        - https
+      rule: "Host(`recipes.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: mealie
+
+    lubelogger:
+      entryPoints:
+        - https
+      rule: "Host(`vehicles.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: lubelogger
+
+    octoprint:
+      entryPoints:
+        - https
+      rule: "Host(`print.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: octoprint
+
+    manyfold:
+      entryPoints:
+        - https
+      rule: "Host(`models.thehorde.page`)"
+      middlewares:
+        - authelia
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: manyfold
+
+    git:
+      entryPoints:
+        - https
+      rule: "Host(`git.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: git
+
+    pdf:
+      entryPoints:
+        - https
+      rule: "Host(`pdf.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: pdf
+
+    paperless:
+      entryPoints:
+        - https
+      rule: "Host(`docs.thehorde.page`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls:
+        certresolver: myresolver
+      service: paperless
+
+  services:
+
+    homepage:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:3000"
+
+    authelia:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:9091"
+
+    vaultwarden:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:9093"
+
+    uptime:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:3001"
+
+    pairdrop:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:3002"
+
+    wiki:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:6875"
+
+    cloud:
+      loadBalancer:
+        servers:
+          - url: "https://42.42.20.2:8081"
+
+    notify:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:4624"
+
+    nas:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:800"
+        passHostHeader: true
+
+    hassio:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.4:8123"
+        passHostHeader: true
+
+    lora2mqtt:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.6"
+        passHostHeader: true
+
+    torrent:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:5656"
+        passHostHeader: true
+
+    sonarr:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:8989"
+        passHostHeader: true
+
+    radarr:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:7878"
+        passHostHeader: true
+
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:8096"
+        passHostHeader: true
+
+    audiobookshelf:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:13378"
+        passHostHeader: true
+
+    prowlarr:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:9696"
+        passHostHeader: true
+
+    bazarr:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.3:6767"
+        passHostHeader: true
+
+    calibre:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:4510"
+        passHostHeader: true
+
+    webdav:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.3:4224"
+        passHostHeader: true
+
+    romm:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:3434"
+        passHostHeader: true
+
+    immich:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:6868"
+        passHostHeader: true
+
+    mealie:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:93"
+        passHostHeader: true
+
+    lubelogger:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:90"
+        passHostHeader: true
+
+    octoprint:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.10"
+        passHostHeader: true
+
+    manyfold:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.3:3214"
+        passHostHeader: true
+
+    git:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:3005"
+        passHostHeader: true
+
+    pdf:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:5648"
+        passHostHeader: true
+    
+    paperless:
+      loadBalancer:
+        servers:
+          - url: "http://42.42.20.2:8001"
+        passHostHeader: true
+
+  middlewares:
+
+    authelia:
+      forwardAuth:
+        address: http://authelia:9091/api/verify?rd=https%3A%2F%2Fauth.thehorde.page%2F
+        trustForwardHeader: true
+        authResponseHeaders:
+          - Remote-User
+          - Remote-Groups
+          - Remote-Name
+          - Remote-Email
+
+    authelia-basic:
+      forwardAuth:
+        address: http://authelia:9091/api/verify?auth=basic
+        trustForwardHeader: true
+        authResponseHeaders:
+          - Remote-User
+          - Remote-Groups
+          - Remote-Name
+          - Remote-Email        
+
+    https-redirectscheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    default-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
