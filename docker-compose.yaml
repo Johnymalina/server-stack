@@ -19,16 +19,35 @@ services:
     # environment:
     #   CF_DNS_API_TOKEN: 80lUICJN2hOjwEamgEhMdZHucCDvOJUKxjxQhSOJ
     image: traefik:latest
+    restart: unless-stopped
     networks:
       - cloudflared
     ports:
       - '80:80'
       - '443:443'
       - '8080:8080'
-    restart: unless-stopped
+
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /home/thehorde/server-stack/appdata/traefik/acme.json:/acme.json
-      - /home/thehorde/server-stack/appdata/traefik/config.yml:/config.yml
-      - /home/thehorde/server-stack/appdata/traefik/traefik.yml:/traefik.yml:ro
+      - ./appdata/traefik/acme.json:/acme.json
+      - ./appdata/traefik/config.yml:/config.yml
+      - ./appdata/traefik/traefik.yml:/traefik.yml:ro
+
+  authelia:
+    container_name: authelia
+    image: docker.io/authelia/authelia:latest
+    restart: unless-stopped
+    networks:
+      - cloudflared
+    environment:
+      AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE: /secrets/JWT_SECRET
+      AUTHELIA_SESSION_SECRET_FILE: /secrets/SESSION_SECRET
+      AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE: /secrets/STORAGE_PASSWORD
+      AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE: /secrets/STORAGE_ENCRYPTION_KEY
+      AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE: /secrets/AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE
+
+    volumes:
+      - ./appdata/authelia/config:/config'
+      - ./appdata/authelia/secrets:/secrets
+      - ./appdata/authelia/db:/db
