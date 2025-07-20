@@ -1,0 +1,11 @@
+- logo:
+    # icon: /icons/logo.svg
+    icon: https://cdn0.iconfinder.com/data/icons/smashicons-games-retro/61/41_-_For_the_Horde_games_play_fun_-512.png
+- greeting:
+    text_size: 2xl
+    text: TheHorde
+- resources:
+    cpu: true
+    memory: true
+    cputemp: true
+    units: metric

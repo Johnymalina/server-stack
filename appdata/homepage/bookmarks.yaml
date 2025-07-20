@@ -1,0 +1,10 @@
+
+- Bookmarks:                  
+  - Github Repositories:
+      - abbr: GH
+        href: https://github.com/Johnymalina?tab=repositories
+        icon: https://cdn.iconscout.com/icon/free/png-512/free-github-159-721954.png?f=webp&w=512          
+  - Homepage Documentation:
+      - abbr: HD
+        href: https://gethomepage.dev
+        icon: homepage.png

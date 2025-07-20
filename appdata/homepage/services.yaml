@@ -1,0 +1,185 @@
+# Homepage services.yaml
+# Docs: https://gethomepage.dev/latest/configs/services
+
+- Monitoring:
+    - Uptime:
+        href: https://uptime.thehorde.page/
+        description: Uptime Monitor
+        icon: uptime-kuma.png
+        siteMonitor: http://42.42.20.2:3001
+        widget:
+            type: uptimekuma
+            url: http://42.42.20.2:3001
+            slug: server
+
+- Home Automation:
+    - HomeAssistant:
+        href: https://ha.thehorde.page/
+        description: Home automation platform
+        icon: home-assistant.png
+        siteMonitor: http://42.42.20.4:8123
+        widget:
+            type: homeassistant
+            url: http://42.42.20.4:8123
+            key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiZjllOGEwMzY2MjU0OTVjOGYxZmQ5MTI3NGE4NTYxMCIsImlhdCI6MTcxMTE0MTA2NCwiZXhwIjoyMDI2NTAxMDY0fQ._mT9yZdVMImyyOpHUiDp30ZvGkP77xZM1NeYyiesiS0
+            custom:
+                - state: sensor.server_power
+
+    - Lora2Mqtt:
+        href: https://lora2mqtt.thehorde.page/
+        description: LoRa to MQTT Bridge
+        icon: meshtastic.png
+        siteMonitor: http://42.42.20.6
+
+- Infrastructure & Network:
+    - NAS:
+        href: https://nas.thehorde.page/
+        description: Network Attached Storage
+        icon: truenas.png
+        siteMonitor: http://42.42.20.2:800/
+
+    - Tailscale:
+        href: https://login.tailscale.com/admin/machines
+        description: Zero-config VPN
+        icon: tailscale.png
+        siteMonitor: https://login.tailscale.com/admin/machines
+
+- Self-hosted Apps (TheHorde):
+    - Snapdrop:
+        href: https://drop.thehorde.page/
+        description: Wireless file and text transfer
+        icon: snapdrop.png
+        siteMonitor: http://42.42.20.2:3002/
+
+    - Wiki:
+        href: https://wiki.thehorde.page/
+        description: TheHorde Knowledge Base
+        icon: bookstack.png
+        siteMonitor: https://wiki.thehorde.page/
+
+    - Cloud:
+        href: https://cloud.thehorde.page/
+        description: TheHorde Knowledge Base
+        icon: nextcloud.png
+        siteMonitor: https://42.42.20.2:8081
+
+    - Bitwarden:
+        href: https://pass.thehorde.page/
+        description: Self-hosted Password Manager
+        icon: bitwarden.png
+        siteMonitor: http://42.42.20.2:9093
+
+    - Gotify:
+        href: https://notify.thehorde.page/
+        description: Notification Server
+        icon: gotify.png
+        siteMonitor: http://42.42.20.2:4624
+
+    - Mealie:
+        href: https://recipes.thehorde.page/
+        description: Recipes
+        icon: mealie.png
+        siteMonitor: http://42.42.20.2:93
+
+    - LubeLogger:
+        href: https://vehicles.thehorde.page/
+        description: Vehicle Maintenance
+        icon: lubelogger.png
+        siteMonitor: http://42.42.20.2:90
+
+    - Git:
+        href: https://git.thehorde.page/
+        description: Git Hosting (Forgejo)
+        icon: forgejo.png
+        siteMonitor: http://42.42.20.2:3005
+
+- Documents & PDFs:
+    - Paperless:
+        href: https://docs.thehorde.page/
+        description: Document Management
+        icon: paperless-ngx.png
+        siteMonitor: http://42.42.20.2:8001
+
+    - Stirling PDF:
+        href: https://pdf.thehorde.page/
+        description: PDF Toolkit
+        icon: stirling-pdf.png
+        siteMonitor: http://42.42.20.2:5648
+
+- Media:
+    - Immich:
+        href: https://photos.thehorde.page/
+        description: Photo Album
+        icon: immich.png
+        siteMonitor: http://42.42.20.2:6868
+
+    - Jellyfin:
+        href: https://play.thehorde.page/
+        description: Media Streaming
+        icon: jellyfin.png
+        siteMonitor: http://42.42.20.2:8096
+        widget:
+            type: jellyfin
+            url: http://42.42.20.2:8096
+            key: d70e224adcc6412b82e02d3bf6424307
+            enableBlocks: true
+            enableNowPlaying: true
+
+    - Audiobookshelf:
+        href: http://audio.thehorde.page/
+        description: Audiobook Management
+        icon: audiobookshelf.png
+        siteMonitor: http://42.42.20.2:13378
+
+- Media Management:
+    - Sonarr:
+        href: http://sonarr.thehorde.page/
+        description: Series Management
+        icon: sonarr.png
+        siteMonitor: http://42.42.20.2:8989
+
+    - Radarr:
+        href: http://radarr.thehorde.page/
+        description: Movie Management
+        icon: radarr.png
+        siteMonitor: http://42.42.20.2:7878
+
+    - Calibre:
+        href: http://calibre.thehorde.page/
+        description: eBook Management
+        icon: calibre.png
+        siteMonitor: http://42.42.20.2:4510
+
+    - Romm:
+        href: http://games.thehorde.page/
+        description: ROM Management
+        icon: romm.png
+        siteMonitor: http://42.42.20.2:3434
+
+    - Torrent:
+        href: http://torrent.thehorde.page/
+        description: Torrent Downloader
+        icon: qbittorrent.png
+        siteMonitor: http://42.42.20.2:5656
+        widget:
+            type: qbittorrent
+            url: http://42.42.20.2:5656
+            username: thehorde
+            password: WJ^4slYdmxP$#cFgQZVG6#Po^g#US5CqH88CJAaznT
+
+- 3D Printing:
+    - Manyfold:
+        href: https://models.thehorde.page/
+        description: STL File Manager
+        icon: manyfold.png
+        siteMonitor: https://models.thehorde.page/
+
+    - OctoPrint:
+        href: https://print.thehorde.page/
+        description: Print Farm Control
+        icon: octoprint.png
+        siteMonitor: http://42.42.20.10
+        widget:
+            type: octoprint
+            url: http://42.42.20.10
+            key: 5A4B20A061B04C0588A90D41419C439A

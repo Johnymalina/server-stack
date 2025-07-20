@@ -354,7 +354,7 @@ http:
     authelia:
       loadBalancer:
         servers:
-          - url: "http://42.42.20.2:9091"
+          - url: "http://authelia:9091"
 
     vaultwarden:
       loadBalancer:

@@ -16,8 +16,6 @@ services:
 
   traefik:
     container_name: traefik
-    # environment:
-    #   CF_DNS_API_TOKEN: 80lUICJN2hOjwEamgEhMdZHucCDvOJUKxjxQhSOJ
     image: traefik:latest
     restart: unless-stopped
     networks:

@@ -1,0 +1,8 @@
+title: Dashborard
+description: My Life For The Horde!
+# favicon: /icons/logo.svg
+favicon: https://cdn0.iconfinder.com/data/icons/smashicons-games-retro/61/41_-_For_the_Horde_games_play_fun_-512.png
+theme: dark
+headerStyle: clean
+showStats: true
+statusStyle: dot
