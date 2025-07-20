@@ -2,17 +2,17 @@ networks:
   cloudflared:
     name: cloudflared
 services:
-  # cloudflared:
-  #   command: tunnel --no-autoupdate run
-  #   container_name: cloudflared
-  #   environment:
-  #     TUNNEL_TOKEN: >-
-  #       eyJhIjoiOGNlODA4ZjBhMzM1ODk4MGIzOTBlYTgzMGE4ZGYzYzYiLCJ0IjoiZDExMjA4OTMtYzBhNC00ZjFkLWE5YzUtNTc2ZWU0MTQwNjgxIiwicyI6Ik9EVTVOREUwT0dRdE9XUTNNaTAwTldKa0xUa3hZMk10TVdRNE5qWTJPV05pWlRRNSJ9
-  #     TZ: Europe/Zurich
-  #   image: cloudflare/cloudflared
-  #   networks:
-  #     - cloudflared
-  #   restart: unless-stopped
+  cloudflared:
+    command: tunnel --no-autoupdate run
+    container_name: cloudflared
+    environment:
+      TUNNEL_TOKEN: >-
+        eyJhIjoiOGNlODA4ZjBhMzM1ODk4MGIzOTBlYTgzMGE4ZGYzYzYiLCJ0IjoiZDExMjA4OTMtYzBhNC00ZjFkLWE5YzUtNTc2ZWU0MTQwNjgxIiwicyI6Ik9EVTVOREUwT0dRdE9XUTNNaTAwTldKa0xUa3hZMk10TVdRNE5qWTJPV05pWlRRNSJ9
+      TZ: Europe/Zurich
+    image: cloudflare/cloudflared
+    networks:
+      - cloudflared
+    restart: unless-stopped
 
   traefik:
     container_name: traefik
@@ -45,6 +45,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
+      TZ: Europe/Zurich
       AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE: /secrets/JWT_SECRET
       AUTHELIA_SESSION_SECRET_FILE: /secrets/SESSION_SECRET
       AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE: /secrets/STORAGE_ENCRYPTION_KEY
