@@ -1,0 +1,9 @@
+users:
+  kuba:
+    displayname: "Kuba"
+    password: "$argon2id$v=19$m=1024,t=1,p=8$VHBOdzVpdnFiY0dZWlJLbw$lFXK1ngIpc+E/Z33oGlO6SoHnVitICMogE6xpeEXMt8" #generated at https://argon2.online/
+    email: jakubcihanek@gmail.com
+  vojtech:
+    displayname: "Vojtech"
+    password: "$argon2id$v=19$m=1024,t=1,p=8$anFDbmJiWXJlbVlZc25Geg$3LL8uLp4d69HvCgMZRXv0pOE6Cta04MWCgx/U6tsGI0" #generated at https://argon2.online/
+    email: vojtias@gmail.com
