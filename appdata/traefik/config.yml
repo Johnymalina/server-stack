@@ -349,7 +349,7 @@ http:
     homepage:
       loadBalancer:
         servers:
-          - url: "http://42.42.20.2:3000"
+          - url: "http://homepage:3000"
 
     authelia:
       loadBalancer:
