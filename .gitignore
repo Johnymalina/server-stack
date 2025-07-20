@@ -1,2 +1,3 @@
 /appdata/authelia/secrets/*
 !/appdata/authelia/secrets/*_sample
+/secrets/*

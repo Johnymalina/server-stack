@@ -2,14 +2,35 @@ networks:
   cloudflared:
     name: cloudflared
 services:
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    restart: unless-stopped
+    environment:
+      WATCHTOWER_CLEANUP: True
+      WATCHTOWER_INCLUDE_STOPPED: True
+      WATCHTOWER_NOTIFICATIONS: gotify
+      WATCHTOWER_NOTIFICATIONS_HOSTNAME: Server
+      WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN_FILE: /run/secrets/gotify_token
+      WATCHTOWER_NOTIFICATION_GOTIFY_URL: http://42.42.20.2:4624
+      WATCHTOWER_REVIVE_STOPPED: False
+      WATCHTOWER_SCHEDULE: 0 00 05 * * 0
+    networks:
+      - cloudflared
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./secrets/watchtower/gotify_token:/run/secrets/gotify_token:ro
+
+
   cloudflared:
     command: tunnel --no-autoupdate run
     container_name: cloudflared
+    image: cloudflare/cloudflared
     environment:
       TUNNEL_TOKEN: >-
         eyJhIjoiOGNlODA4ZjBhMzM1ODk4MGIzOTBlYTgzMGE4ZGYzYzYiLCJ0IjoiZDExMjA4OTMtYzBhNC00ZjFkLWE5YzUtNTc2ZWU0MTQwNjgxIiwicyI6Ik9EVTVOREUwT0dRdE9XUTNNaTAwTldKa0xUa3hZMk10TVdRNE5qWTJPV05pWlRRNSJ9
       TZ: Europe/Zurich
-    image: cloudflare/cloudflared
     networks:
       - cloudflared
     restart: unless-stopped
