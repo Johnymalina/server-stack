@@ -108,3 +108,14 @@ services:
       - cloudflared
     ports:
       - 4624:80
+
+  apprise:
+    image: caronc/apprise:latest
+    container_name: apprise
+    restart: unless-stopped
+    networks:
+      - cloudflared
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./appdata/apprise:/config
