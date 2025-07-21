@@ -85,3 +85,15 @@ services:
       HOMEPAGE_ALLOWED_HOSTS: home.thehorde.page
       PUID: 1000
       PGID: 1000
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    networks:
+      - cloudflared
+    environment:
+      DOMAIN: https://thehorde.page
+      SIGNUPS_ALLOWED: 'true'
+    volumes:
+      - ./appdata/vaultwarden:/data

@@ -28,6 +28,12 @@ http:
       rule: Host(`ha.thehorde.page`)
       service: hassio
 
+    vaultwarden:
+      entryPoints:
+        - web
+      rule: Host(`pass.thehorde.page`)
+      service: vaultwarden
+
   services:
 
     authelia:
@@ -40,10 +46,22 @@ http:
         servers:
           - url: http://homepage:3000
 
+    nas:
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.3
+
     hassio:
       loadBalancer:
         servers:
           - url: http://42.42.20.4:8123
+
+    vaultwarden:
+      loadBalancer:
+        servers:
+          - url: http://vaultwarden:80
+
+
 
   middlewares:
     force-https-header:
