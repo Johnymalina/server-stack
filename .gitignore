@@ -1,4 +1,5 @@
 /appdata/authelia/secrets/*
 !/appdata/authelia/secrets/*_sample
+appdata/authelia/db/*
 /secrets/*
 appdata/homepage/logs/*
