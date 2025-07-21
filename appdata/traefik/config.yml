@@ -34,6 +34,12 @@ http:
       rule: Host(`pass.thehorde.page`)
       service: vaultwarden
 
+    gotify:
+      entryPoints:
+        - web
+      rule: Host(`notify.thehorde.page`)
+      service: gotify
+
   services:
 
     authelia:
@@ -61,7 +67,10 @@ http:
         servers:
           - url: http://vaultwarden:80
 
-
+    gotify:
+      loadBalancer:
+        servers:
+          - url: http://gotify:80
 
   middlewares:
     force-https-header:

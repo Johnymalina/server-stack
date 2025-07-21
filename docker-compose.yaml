@@ -93,7 +93,18 @@ services:
     networks:
       - cloudflared
     environment:
-      DOMAIN: https://thehorde.page
+      DOMAIN: https://pass.thehorde.page
       SIGNUPS_ALLOWED: 'true'
     volumes:
       - ./appdata/vaultwarden:/data
+
+  gotify:
+    image: gotify/server
+    container_name: gotify
+    restart: unless-stopped
+    volumes:
+      - ./appdata/gotify:/app/data
+    networks:
+      - cloudflared
+    ports:
+      - 4624:80
