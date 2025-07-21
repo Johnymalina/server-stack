@@ -40,6 +40,12 @@ http:
       rule: Host(`notify.thehorde.page`)
       service: gotify
 
+    uptime:
+      entryPoints:
+        - web
+      rule: Host(`uptime.thehorde.page`)
+      service: uptime
+
   services:
 
     authelia:
@@ -71,6 +77,11 @@ http:
       loadBalancer:
         servers:
           - url: http://gotify:80
+
+    uptime:
+      loadBalancer:
+        servers:
+          - url: http://uptime:3001
 
   middlewares:
     force-https-header:

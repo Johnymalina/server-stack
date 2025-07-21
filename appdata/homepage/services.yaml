@@ -6,7 +6,7 @@
         href: https://uptime.thehorde.page/
         description: Uptime Monitor
         icon: uptime-kuma.png
-        siteMonitor: http://42.42.20.2:3001
+        siteMonitor: http://uptime:3001
         widget:
             type: uptimekuma
             url: http://42.42.20.2:3001

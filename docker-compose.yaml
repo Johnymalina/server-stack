@@ -119,3 +119,25 @@ services:
       - '8000:8000'
     volumes:
       - ./appdata/apprise:/config
+
+  uptime:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime
+    restart: unless-stopped
+    networks:
+      - cloudflared
+    ports:
+      - 3001:3001
+    volumes:
+      - ./appdata/uptime:/app/data
+
+  pairdrop:
+    image: lscr.io/linuxserver/pairdrop:latest
+    container_name: pairdrop
+    restart: unless-stopped
+    environment:
+      PGID: 1000
+      PUID: 1000
+      TZ: Europe/Zurich
+    networks:
+      - cloudflared
