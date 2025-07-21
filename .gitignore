@@ -1,5 +1,8 @@
-/appdata/authelia/secrets/*
-!/appdata/authelia/secrets/*_sample
-appdata/authelia/db/*
-/secrets/*
-appdata/homepage/logs/*
+secrets/*
+appdata/*
+!appdata/authelia/secrets/*
+!appdata/authelia/secrets/*_sample
+!appdata/authelia/configuration.yml
+!appdata/authelia/user_database.yml
+!appdata/traefik/traefik.yml
+!appdata/traefik/config.yml
