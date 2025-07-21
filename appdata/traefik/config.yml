@@ -4,7 +4,7 @@ http:
     authelia:
       entryPoints:
         - web
-      rule: "Host(`auth.thehorde.page`)"
+      rule: Host(`auth.thehorde.page`)
       service: authelia
 
     homepage:
@@ -13,31 +13,37 @@ http:
       middlewares:
         - force-https-header
         - authelia
-      rule: "Host(`home.thehorde.page`)"
+      rule: Host(`home.thehorde.page`)
       service: homepage
 
-    vaultwarden:
+    nas:
       entryPoints:
         - web
-      rule: "Host(`pass.thehorde.page`)"
-      service: vaultwarden
+      rule: Host(`nas.thehorde.page`)
+      service: nas
+
+    hassio:
+      entryPoints:
+        - web
+      rule: Host(`ha.thehorde.page`)
+      service: hassio
 
   services:
 
     authelia:
       loadBalancer:
         servers:
-          - url: "http://authelia:9091"
+          - url: http://authelia:9091
 
     homepage:
       loadBalancer:
         servers:
-          - url: "http://homepage:3000"
+          - url: http://homepage:3000
 
-    vaultwarden:
+    hassio:
       loadBalancer:
         servers:
-          - url: http://42.42.20.2:9093
+          - url: http://42.42.20.4:8123
 
   middlewares:
     force-https-header:

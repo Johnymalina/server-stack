@@ -36,7 +36,7 @@
         href: https://nas.thehorde.page/
         description: Network Attached Storage
         icon: truenas.png
-        siteMonitor: http://42.42.20.2:800/
+        siteMonitor: http://42.42.20.3
 
     - Tailscale:
         href: https://login.tailscale.com/admin/machines
