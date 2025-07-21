@@ -126,8 +126,6 @@ services:
     restart: unless-stopped
     networks:
       - cloudflared
-    ports:
-      - 3001:3001
     volumes:
       - ./appdata/uptime:/app/data
 

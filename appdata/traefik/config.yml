@@ -46,6 +46,12 @@ http:
       rule: Host(`uptime.thehorde.page`)
       service: uptime
 
+    pairdrop:
+      entryPoints:
+        - web
+      rule: Host(`drop.thehorde.page`)
+      service: pairdrop
+
   services:
 
     authelia:
@@ -82,6 +88,11 @@ http:
       loadBalancer:
         servers:
           - url: http://uptime:3001
+  
+    pairdrop:
+      loadBalancer:
+        servers:
+          - url: http://pairdrop:3000
 
   middlewares:
     force-https-header:

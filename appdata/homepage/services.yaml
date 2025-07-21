@@ -9,7 +9,7 @@
         siteMonitor: http://uptime:3001
         widget:
             type: uptimekuma
-            url: http://42.42.20.2:3001
+            url: http://uptime:3001
             slug: server
 
 - Home Automation:
@@ -45,11 +45,11 @@
         siteMonitor: https://login.tailscale.com/admin/machines
 
 - Self-hosted Apps (TheHorde):
-    - Snapdrop:
+    - Pairdrop:
         href: https://drop.thehorde.page/
         description: Wireless file and text transfer
-        icon: snapdrop.png
-        siteMonitor: http://42.42.20.2:3002/
+        icon: pairdrop.png
+        siteMonitor: http://pairdrop:3000
 
     - Wiki:
         href: https://wiki.thehorde.page/
