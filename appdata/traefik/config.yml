@@ -88,6 +88,18 @@ http:
       rule: Host(`games.thehorde.page`)
       service: romm
 
+    git:
+      entryPoints:
+        - web
+      rule: Host(`git.thehorde.page`)
+      service: git
+
+    wiki:
+      entryPoints:
+        - web
+      rule: Host(`wiki.thehorde.page`)
+      service: wiki
+
   services:
 
     authelia:
@@ -154,6 +166,16 @@ http:
       loadBalancer:
         servers:
           - url: http://42.42.20.3:3434
+    
+    git:
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.3:3005
+    
+    wiki: 
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.3:6875
 
   middlewares:
     force-https-header:

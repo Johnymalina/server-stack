@@ -56,7 +56,7 @@ access_control:
       policy: one_factor        
     - domain: "uptime.thehorde.page" 
       policy: two_factor          
-    - domain: "nas.thehorde.page"
+    - domain: "lora2mqtt.thehorde.page"
       policy: two_factor  
     - domain: "prowlarr.thehorde.page" 
       policy: one_factor  
