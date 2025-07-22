@@ -9,9 +9,6 @@ server:
   buffers:
     read: 4096
     write: 4096
-  # enable_pprof: false
-  # enable_expvars: false
-  # disable_healthcheck: false
   tls:
     key: ""
     certificate: ""
@@ -57,14 +54,8 @@ access_control:
       policy: bypass 
     - domain: "home.thehorde.page"
       policy: one_factor        
-    - domain: "proxy.thehorde.page" 
-      policy: two_factor
     - domain: "uptime.thehorde.page" 
       policy: two_factor          
-    - domain: "net.thehorde.page" 
-      policy: two_factor      
-    - domain: "proxmox.thehorde.page" 
-      policy: two_factor 
     - domain: "nas.thehorde.page"
       policy: two_factor  
     - domain: "prowlarr.thehorde.page" 

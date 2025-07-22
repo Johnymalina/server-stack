@@ -27,6 +27,15 @@ http:
         - web
       rule: Host(`ha.thehorde.page`)
       service: hassio
+    
+    lora2mqtt:
+      entryPoints:
+        - web
+      middlewares:
+        - force-https-header
+        - authelia
+      rule: Host(`lora2mqtt.thehorde.page`)
+      service: lora2mqtt
 
     vaultwarden:
       entryPoints:
@@ -43,6 +52,9 @@ http:
     uptime:
       entryPoints:
         - web
+      middlewares:
+        - force-https-header
+        - authelia
       rule: Host(`uptime.thehorde.page`)
       service: uptime
 
@@ -97,6 +109,11 @@ http:
       loadBalancer:
         servers:
           - url: http://42.42.20.4:8123
+
+    lora2mqtt:
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.6
 
     vaultwarden:
       loadBalancer:
