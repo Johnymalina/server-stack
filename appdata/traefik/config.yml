@@ -64,6 +64,12 @@ http:
       rule: Host(`audio.thehorde.page`)
       service: audiobookshelf
 
+    immich:
+      entryPoints:
+        - web
+      rule: Host(`photos.thehorde.page`)
+      service: immich
+
   services:
 
     authelia:
@@ -115,6 +121,11 @@ http:
       loadBalancer:
         servers:
           - url: http://42.42.20.3:13378
+
+    immich:
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.3:6868
 
   middlewares:
     force-https-header:
