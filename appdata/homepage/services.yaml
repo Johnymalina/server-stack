@@ -117,10 +117,10 @@
         href: https://play.thehorde.page/
         description: Media Streaming
         icon: jellyfin.png
-        siteMonitor: http://42.42.20.2:8096
+        siteMonitor: http://42.42.20.3:8096
         widget:
             type: jellyfin
-            url: http://42.42.20.2:8096
+            url: http://42.42.20.3:8096
             key: d70e224adcc6412b82e02d3bf6424307
             enableBlocks: true
             enableNowPlaying: true

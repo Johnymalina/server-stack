@@ -52,6 +52,12 @@ http:
       rule: Host(`drop.thehorde.page`)
       service: pairdrop
 
+    jellyfin:
+      entryPoints:
+        - web
+      rule: Host(`play.thehorde.page`)
+      service: jellyfin
+
   services:
 
     authelia:
@@ -93,6 +99,11 @@ http:
       loadBalancer:
         servers:
           - url: http://pairdrop:3000
+    
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.3:8096
 
   middlewares:
     force-https-header:
