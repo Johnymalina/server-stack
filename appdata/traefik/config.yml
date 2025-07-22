@@ -58,6 +58,12 @@ http:
       rule: Host(`play.thehorde.page`)
       service: jellyfin
 
+    audiobookshelf:
+      entryPoints:
+        - web
+      rule: Host(`audio.thehorde.page`)
+      service: audiobookshelf
+
   services:
 
     authelia:
@@ -104,6 +110,11 @@ http:
       loadBalancer:
         servers:
           - url: http://42.42.20.3:8096
+    
+    audiobookshelf:
+      loadBalancer:
+        servers:
+          - url: http://42.42.20.3:13378
 
   middlewares:
     force-https-header:

@@ -129,7 +129,7 @@
         href: http://audio.thehorde.page/
         description: Audiobook Management
         icon: audiobookshelf.png
-        siteMonitor: http://42.42.20.2:13378
+        siteMonitor: http://42.42.20.3:13378
 
 - Media Management:
     - Sonarr:
